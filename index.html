@@ -49,6 +49,29 @@
     <p>I have added a video to explain how to use this.</p>
     <div class="button-container">
         <button onclick="openGame()">Bypass</button>
+
+</head><body>
+    <button id="cloakedButton">Open Url Directly</button>
+
+    <script>
+        document.getElementById("cloakedButton").addEventListener("click", function() {
+            var url = prompt("Enter the website URL");
+            var win = window.open();
+            var iframe = win.document.createElement('iframe');
+            iframe.style = "position: fixed; width: 100vw; height: 100vh; top: 0px; left: 0px; right: 0px; bottom: 0px; z-index: 2147483647; background-color: white; border: none;";
+            
+            if (url.includes('https://') || url.includes("http://")) {
+                iframe.src = url;
+            } else {
+                iframe.src = "https://" + url;
+            }
+            
+            win.document.body.appendChild(iframe);
+        });
+    </script>
+</body>
+</html>
+
     </div>
     <div class="video-wrapper">
         <video controls preload="metadata" title="6N1.1 Intro Video.mp4">
